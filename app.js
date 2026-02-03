@@ -4,8 +4,8 @@ if(process.env.NODE_ENV != "production" ) {
 
 const express = require("express");
 const app = express();
-const port = 8080;
-// const port = process.env.PORT || 8080;
+//const port = 8080;
+const port = process.env.PORT || 8080;
 const mongoose = require("mongoose");
 const path = require("path");
 const ejsMate = require("ejs-mate");
@@ -22,8 +22,8 @@ const listingRouter = require("./routes/listing.js");
 const reviewRouter = require("./routes/review.js");
 const userRouter = require("./routes/user.js");
 
-// const dbUrl = process.env.ATLASDB_URL;
-const MONGODB_URI = "mongodb://127.0.0.1:27017/wanderlust";
+const dbUrl = process.env.ATLASDB_URL;
+//const MONGODB_URI = "mongodb://127.0.0.1:27017/wanderlust";
 
 main()
   .then(() => {
@@ -34,7 +34,8 @@ main()
   });
 
 async function main() {
-  await mongoose.connect(MONGODB_URI);
+  //await mongoose.connect(MONGODB_URI);  //old
+  await mongoose.connect(dbUrl); //s-new
 }
 
 app.engine("ejs", ejsMate);
