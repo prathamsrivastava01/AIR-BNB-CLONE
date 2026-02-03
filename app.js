@@ -4,7 +4,8 @@ if(process.env.NODE_ENV != "production" ) {
 
 const express = require("express");
 const app = express();
-const port = 8080;
+//const port = 8080;
+const port = process.env.PORT || 8080;
 const mongoose = require("mongoose");
 const path = require("path");
 const ejsMate = require("ejs-mate");
@@ -75,6 +76,11 @@ app.use((req, res, next) => {
 });
 
 // Routes
+// Routes
+app.get("/", (req, res) => {
+  res.redirect("/listings");
+});
+
 app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews", reviewRouter);
 app.use("/", userRouter);
@@ -95,3 +101,4 @@ app.use((err, req, res, next)=> {
 app.listen(port, ()=>{
     console.log(`The port is running on ${port}`);
 });
+
