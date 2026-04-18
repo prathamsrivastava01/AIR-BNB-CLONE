@@ -22,8 +22,8 @@ const listingRouter = require("./routes/listing.js");
 const reviewRouter = require("./routes/review.js");
 const userRouter = require("./routes/user.js");
 
-const dbUrl = process.env.ATLASDB_URL;
-//const MONGODB_URI = "mongodb://127.0.0.1:27017/wanderlust";
+const dbUrl = process.env.ATLASDB_URL;  //live ke leye uncomment kro isse 
+//const MONGODB_URI = "mongodb://127.0.0.1:27017/wanderlust";  //work krne ke leye localhost pr isse use kro 
 
 main()
   .then(() => {
@@ -34,8 +34,8 @@ main()
   });
 
 async function main() {
-  //await mongoose.connect(MONGODB_URI);  //old
-  await mongoose.connect(dbUrl); //s-new
+  //await mongoose.connect(MONGODB_URI);  //old-(work ke leye use kro)
+  await mongoose.connect(dbUrl); //s-new (use for live)
 }
 
 app.engine("ejs", ejsMate);
