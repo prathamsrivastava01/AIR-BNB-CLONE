@@ -132,6 +132,7 @@ const sampleListings = [
     location: "Amsterdam",
     country: "Netherlands",
   },
+  
   {
     title: "Private Island Retreat",
     description:
