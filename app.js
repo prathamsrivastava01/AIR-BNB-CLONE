@@ -4,7 +4,6 @@ if(process.env.NODE_ENV != "production" ) {
 
 const express = require("express");
 const app = express();
-//const port = 8080;
 const port = process.env.PORT || 8080;
 const mongoose = require("mongoose");
 const path = require("path");
@@ -22,8 +21,8 @@ const listingRouter = require("./routes/listing.js");
 const reviewRouter = require("./routes/review.js");
 const userRouter = require("./routes/user.js");
 
-const dbUrl = process.env.ATLASDB_URL;  //live 
-//const MONGODB_URI = "mongodb://127.0.0.1:27017/wanderlust";  //localhost
+//const dbUrl = process.env.ATLASDB_URL;  //live 
+const MONGODB_URI = "mongodb://127.0.0.1:27017/wanderlust";  //localhost
 
 main()
   .then(() => {
@@ -34,8 +33,8 @@ main()
   });
 
 async function main() {
-  //await mongoose.connect(MONGODB_URI);  //old-(work ke leye use kro)
-  await mongoose.connect(dbUrl); //s-new (use for live)
+  await mongoose.connect(MONGODB_URI);  //old-(work ke leye use kro)
+  //await mongoose.connect(dbUrl); //s-new (use for live)
 }
 
 app.engine("ejs", ejsMate);
