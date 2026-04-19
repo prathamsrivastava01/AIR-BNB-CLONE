@@ -1,30 +1,91 @@
-<% layout("/layouts/boilerplate") %> 
+<% layout("/layouts/boilerplate", { hideNavbar: true, hideFooter: true }) %>
 
-<div class="row mt-3">
-    <h1 class="col-8 0ffset-5"> Login</h1>
-  <div class="col-6 offset-3">
-    <form action="/login" method="POST" class="needs-validation" novalidate>
-      <div class="mb-3">
-        <label for="username" class="form-label">Username</label>
-        <input 
-        name="username" 
-        id="username"
-        type="text" 
-        class="form-control"
-        required 
-     />
-     </div>
+<style>
+  body {
+    overflow: hidden;
+    background: #f8f9fa;
+  }
 
-       <div class="mb-3">
-        <label for="password" class="form-label">Password</label>
-        <input 
-        name="password" 
-        id="password"
-        type="password" 
-        class="form-control"
-        required 
-        />
-        <button class="btn btn-success"> Login </button>
-    </form>
+  .left-img {
+    height: 100vh;
+    object-fit: cover;
+  }
+
+  .login-box {
+    width: 380px;
+    padding: 35px;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  }
+
+  .login-title {
+    font-weight: 600;
+  }
+
+  .form-control {
+    height: 45px;
+    border-radius: 8px;
+  }
+
+  .btn {
+    height: 45px;
+    border-radius: 8px;
+    font-weight: 500;
+  }
+
+  .signup-text {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+  }
+</style>
+
+<div class="container-fluid">
+  <div class="row vh-100">
+
+    <!-- LEFT SIDE IMAGE -->
+    <div class="col-md-6 p-0 d-none d-md-block">
+      <img 
+        src="/images/men1.jpg" 
+        class="w-100 left-img"
+      >
+    </div>
+
+    <!-- RIGHT SIDE LOGIN -->
+    <div class="col-md-6 d-flex align-items-center justify-content-center">
+
+      <div class="login-box">
+
+        <h2 class="login-title text-center mb-4">Welcome Back 👋</h2>
+
+        <form action="/login" method="POST">
+
+          <div class="mb-3">
+            <label class="form-label">Username</label>
+            <input type="text" name="username" class="form-control" placeholder="Enter username" required>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Password</label>
+            <input type="password" name="password" class="form-control" placeholder="Enter password" required>
+          </div>
+
+          <button class="btn btn-success w-100 mb-2">Login</button>
+
+          <a href="/signup" class="btn btn-outline-primary w-100">
+            Create Account
+          </a>
+
+          <div class="signup-text">
+            Don’t have an account? <a href="/signup">Sign up</a>
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+
   </div>
 </div>

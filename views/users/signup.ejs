@@ -1,87 +1,102 @@
-<!-- <% layout("/layouts/boilerplate") %> 
+<% layout("/layouts/boilerplate", { hideNavbar: true, hideFooter: true }) %>
 
-<div class="row mt-3">
-    <h1 class="col-9 offset-6"> Sign-Up on Wanderlust</h1>
-  <div class="col-6 offset-3">
-    <form action="/signup" method="POST" class="needs-validation" novalidate>
-      <div class="mb-3">
-        <label for="username" class="form-label">Username</label>
-        <input 
-        name="username" 
-        id="username"
-        type="text" 
-        class="form-control"
-        required 
-        />
-        </div>
+<style>
+  body {
+    background: #f8f9fa;
+  }
 
-     <div class="valid-feedback">Looks good!</div>
+  /* REMOVE overflow hidden for mobile */
+  @media (min-width: 768px) {
+    body {
+      overflow: hidden;
+    }
+  }
 
-       <div class="mb-3">
-        <label for="email" class="form-label">Email</label>
-        <input 
-        name="email" 
-        id="email"
-        type="email" 
-        class="form-control"
-        required 
-        />
-        </div>
-        
-       <div class="mb-3">
-        <label for="password" class="form-label">Password</label>
-        <input 
-        name="password" 
-        id="password"
-        type="password" 
-        class="form-control"
-        required 
-        />
-        <button class="btn btn-success"> SignUp </button>
-    </form>
+  .left-img {
+    height: 100vh;
+    object-fit: cover;
+  }
+
+  .signup-box {
+    width: 380px;
+    max-width: 90%;
+    padding: 30px;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  }
+
+  .form-control {
+    height: 45px;
+    border-radius: 8px;
+  }
+
+  .btn {
+    height: 45px;
+    border-radius: 8px;
+    font-weight: 500;
+  }
+
+  .login-link {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+  }
+
+  /* MOBILE CENTER FIX */
+  .mobile-center {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+</style>
+
+<div class="container-fluid">
+  <div class="row">
+
+    <!-- LEFT IMAGE (hidden on mobile) -->
+    <div class="col-md-6 p-0 d-none d-md-block">
+      <img src="/images/men2.jpg" 
+      class="w-100 left-img">
+    </div>
+
+    <!-- RIGHT FORM -->
+    <div class="col-md-6 mobile-center">
+
+      <div class="signup-box">
+
+        <h2 class="text-center mb-4">Create Account 🚀</h2>
+
+        <form action="/signup" method="POST">
+
+          <div class="mb-3">
+            <label class="form-label">Username</label>
+            <input name="username" type="text" class="form-control" placeholder="Enter username" required>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input name="email" type="email" class="form-control" placeholder="Enter email" required>
+          </div>
+          
+          <div class="mb-3">
+            <label class="form-label">Password</label>
+            <input name="password" type="password" class="form-control" placeholder="Enter password" required>
+          </div>
+
+          <button class="btn btn-success w-100 mb-2">Sign Up</button>
+
+          <div class="login-link">
+            Already have an account? <a href="/login">Login</a>
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+
   </div>
-</div> -->
-
-
-
-<% layout("/layouts/boilerplate") %> 
-
-<div class="row mt-3">
-    <h1 class="col-6 offset-3"> Sign-Up on Wanderlust</h1>
-  <div class="col-6 offset-3">
-    <form action="/signup" method="POST" class="needs-validation" novalidate>
-        <div class="mb-3">
-            <label for="username" class="form-label">Username</label>
-            <input 
-                name="username" 
-                id="username"
-                type="text" 
-                class="form-control"
-                required 
-            />
-            <div class="valid-feedback">Looks good!</div>
-        </div>
-
-        <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
-            <input 
-                name="email" 
-                id="email"
-                type="email" 
-                class="form-control"
-                required 
-            />
-        </div>
-        
-        <div class="mb-3">
-            <label for="password" class="form-label">Password</label>
-            <input 
-                name="password" 
-                id="password"
-                type="password" 
-                class="form-control"
-                required 
-            />
-        </div> <button class="btn btn-success">SignUp</button>
-    </form> </div>
 </div>
